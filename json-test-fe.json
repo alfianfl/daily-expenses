@@ -1,0 +1,151 @@
+{
+  "detail": [
+    {
+      "id": 0,
+      "jam": "03:15",
+      "tanggal": "18 Agustus 2022",
+      "nama": "Ayam Tangkap",
+      "pengeluaraan": 77249
+    },
+    {
+      "id": 1,
+      "jam": "03:15",
+      "tanggal": "18 Agustus 2022",
+      "nama": "Mie Rebus",
+      "pengeluaraan": 32154
+    },
+    {
+      "id": 2,
+      "jam": "00:20",
+      "tanggal": "17 Agustus 2022",
+      "nama": "Soto Kuning",
+      "pengeluaraan": 34992
+    },
+    {
+      "id": 3,
+      "jam": "05:59",
+      "tanggal": "17 Agustus 2022",
+      "nama": "Ayam Geprek",
+      "pengeluaraan": 37674
+    },
+    {
+      "id": 4,
+      "jam": "05:45",
+      "tanggal": "16 Agustus 2022",
+      "nama": "Otak-otak",
+      "pengeluaraan": 11971
+    },
+    {
+      "jam": "15:37",
+      "nama": "nasi goreng mafia",
+      "tanggal": "28 Agustus 2022",
+      "pengeluaraan": 60000,
+      "id": 32
+    },
+    {
+      "jam": "15:55",
+      "nama": "Nasi Ayam",
+      "tanggal": "27 Agustus 2022",
+      "pengeluaraan": 40000,
+      "id": 34
+    },
+    {
+      "jam": "15:55",
+      "nama": "bebek kaleo",
+      "tanggal": "27 Agustus 2022",
+      "pengeluaraan": 85297,
+      "id": 35
+    },
+    {
+      "jam": "16:33",
+      "nama": "kabobs",
+      "tanggal": "27 Agustus 2022",
+      "pengeluaraan": 12000,
+      "id": 36
+    },
+    {
+      "jam": "16:33",
+      "nama": "lumpiah basah",
+      "tanggal": "27 Agustus 2022",
+      "pengeluaraan": 12000,
+      "id": 37
+    },
+    {
+      "jam": "16:33",
+      "nama": "seblak",
+      "tanggal": "27 Agustus 2022",
+      "pengeluaraan": 12000,
+      "id": 38
+    },
+    {
+      "jam": "16:33",
+      "nama": "ayam bakar",
+      "tanggal": "27 Agustus 2022",
+      "pengeluaraan": 12000,
+      "id": 39
+    },
+    {
+      "jam": "16:34",
+      "nama": "ayam bakar 2",
+      "tanggal": "27 Agustus 2022",
+      "pengeluaraan": 12000,
+      "id": 40
+    },
+    {
+      "jam": "16:34",
+      "nama": "nasi sei sapi",
+      "tanggal": "27 Agustus 2022",
+      "pengeluaraan": 12000,
+      "id": 41
+    },
+    {
+      "jam": "16:34",
+      "nama": "ayam bawang",
+      "tanggal": "27 Agustus 2022",
+      "pengeluaraan": 12000,
+      "id": 42
+    },
+    {
+      "jam": "16:49",
+      "nama": "tahu goreng",
+      "tanggal": "27 Agustus 2022",
+      "pengeluaraan": 4000,
+      "id": 43
+    },
+    {
+      "jam": "16:53",
+      "nama": "bayam goreng",
+      "tanggal": "27 Agustus 2022",
+      "pengeluaraan": 6000,
+      "id": 44
+    },
+    {
+      "jam": "19:14",
+      "nama": "nasi kebuli",
+      "tanggal": "27 Agustus 2022",
+      "pengeluaraan": 10000,
+      "id": 45
+    },
+    {
+      "jam": "19:16",
+      "nama": "nasi kebuli",
+      "tanggal": "27 Agustus 2022",
+      "pengeluaraan": 10000,
+      "id": 46
+    },
+    {
+      "jam": "20:11",
+      "nama": "nasi ayam",
+      "tanggal": "27 Agustus 2022",
+      "pengeluaraan": 60000,
+      "id": 48
+    },
+    {
+      "jam": "20:26",
+      "nama": "bismillah",
+      "tanggal": "27 Agustus 2022",
+      "pengeluaraan": 10000,
+      "id": 49
+    }
+  ]
+}
