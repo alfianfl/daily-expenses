@@ -146,6 +146,34 @@
       "tanggal": "27 Agustus 2022",
       "pengeluaraan": 10000,
       "id": 49
+    },
+    {
+      "jam": "12:28",
+      "nama": "kepala ikan",
+      "tanggal": "28 Agustus 2022",
+      "pengeluaraan": 6000,
+      "id": 50
+    },
+    {
+      "jam": "12:44",
+      "nama": "nasi kepal",
+      "tanggal": "28 Agustus 2022",
+      "pengeluaraan": 6000,
+      "id": 52
+    },
+    {
+      "jam": "12:48",
+      "nama": "ayam bakar",
+      "tanggal": "28 Agustus 2022",
+      "pengeluaraan": 9000,
+      "id": 53
+    },
+    {
+      "jam": "12:48",
+      "nama": "mixue",
+      "tanggal": "28 Agustus 2022",
+      "pengeluaraan": 19000,
+      "id": 54
     }
   ]
 }

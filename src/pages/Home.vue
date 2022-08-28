@@ -1,11 +1,11 @@
 <template>
   <div id="homepage" class="container mx-auto my-6">
     <section class="section-title text-center">
-      <h2 class="text-2xl font-semibold">Diari Jajan Agustus 2022</h2>
+      <h2 class="text-2xl font-semibold">Diari Jajan {{ getBulan }} 2022</h2>
       <p>Pengeluaraan Bulan ini {{ formatRupiah(totalPengeluaran) }}</p>
       <div class="flex justify-center">
         <Button
-          class="bg-purple-700 my-4"
+          class="bg-purple-700 my-4 hover:bg-purple-600"
           :params="true"
           @click="modalHandler(true)"
           >Tambah Item</Button
@@ -51,75 +51,10 @@ export default defineComponent({
   mounted() {
     this.refetch();
   },
-  methods: {
-    async refetch() {
-      try {
-        const res = await fetch("http://localhost:3000/detail");
-        if (!res.ok) {
-          const message = `An error has occured: ${res.status} - ${res.statusText}`;
-          throw new Error(message);
-        }
-        const data = await res.json();
-        const result = {
-          status: res.status + "-" + res.statusText,
-          headers: {
-            "Content-Type": res.headers.get("Content-Type"),
-            "Content-Length": res.headers.get("Content-Length"),
-          },
-          length: res.headers.get("Content-Length"),
-          data: data,
-        };
-
-        // Data dari result disusun ulang berdasarkan tanggal pembuatan item agar mempermudah proses maping
-        const newResult = result.data
-          // sorting tanggal dari yang terbaru
-          .sort(function (a: any, b: any) {
-            return b.tanggal.localeCompare(a.tanggal);
-          })
-          .reduce(
-            (
-              acc: any,
-              { tanggal, jam, nama, pengeluaraan }: responseType
-            ): any[] => {
-              // pada parameter acc dilakukan pencarian data yang memiliki tanggal yang sama.
-              const found = acc.find((x: any) => x.tanggal === tanggal);
-              // Bila data (found) exist maka data jam, nama, dan pengeluaran akan di push kedalam properti detail pada data terkait (found).
-              if (found) {
-                found["detail"].push({ jam, nama, pengeluaraan });
-              } else {
-                // Bila data (found) not exist maka sistem akan menambah object baru yang berisi tanggal dan detail pengeluaran.
-                acc.push({
-                  tanggal,
-                  ["detail"]: [{ jam, nama, pengeluaraan }],
-                });
-              }
-              return acc;
-            },
-            []
-          );
-        console.log(newResult);
-        let sum = 0;
-        // fungsi untuk mengambil data total pengeluaran
-        for (let index = 0; index < result.data.length; index++) {
-          sum += result.data[index].pengeluaraan;
-        }
-
-        this.totalPengeluaran = sum;
-        this.dataPengeluaran = newResult;
-      } catch (err) {
-        console.log(err);
-      }
-    },
-    modalHandler(value: boolean): void {
-      this.isOpen = value;
-    },
-    async addItemsHandler({ nama, harga }: { nama: string; harga: number }) {
-      // mengambil data tanggal hari ini
+  computed: {
+    getBulan() {
       const today = new Date();
-      const tahun = today.getFullYear();
       let bulan: string | number = today.getMonth();
-      const hari = today.getDate();
-
       switch (bulan) {
         case 0:
           bulan = "Januari";
@@ -159,7 +94,78 @@ export default defineComponent({
           break;
       }
 
-      const tanggal = hari + " " + bulan + " " + tahun;
+      return bulan;
+    },
+  },
+  methods: {
+    async refetch() {
+      try {
+        const res = await fetch("http://localhost:3000/detail");
+        if (!res.ok) {
+          const message = `An error has occured: ${res.status} - ${res.statusText}`;
+          throw new Error(message);
+        }
+        const data = await res.json();
+        const result = {
+          status: res.status + "-" + res.statusText,
+          headers: {
+            "Content-Type": res.headers.get("Content-Type"),
+            "Content-Length": res.headers.get("Content-Length"),
+          },
+          length: res.headers.get("Content-Length"),
+          data: data,
+        };
+
+        // Data dari result disusun ulang berdasarkan tanggal pembuatan item agar mempermudah proses maping
+        const newResult = result.data
+          // sorting tanggal dari yang terbaru
+          .sort(function (a: responseType, b: responseType) {
+            return b.tanggal.localeCompare(a.tanggal);
+          })
+          .reduce(
+            (
+              acc: responseType[],
+              { tanggal, jam, nama, pengeluaraan }: responseType
+            ): responseType[] => {
+              // pada parameter acc dilakukan pencarian data yang memiliki tanggal yang sama.
+              const found = acc.find((x: responseType) => x.tanggal === tanggal);
+              // Bila data (found) exist maka data jam, nama, dan pengeluaran akan di push kedalam properti detail pada data terkait (found).
+              if (found) {
+                found["detail"]?.push({ jam, nama, pengeluaraan });
+              } else {
+                // Bila data (found) not exist maka sistem akan menambah object baru yang berisi tanggal dan detail pengeluaran.
+                acc.push({
+                  tanggal,
+                  ["detail"]: [{ jam, nama, pengeluaraan }],
+                });
+              }
+              return acc;
+            },
+            []
+          );
+        console.log(newResult);
+        let sum = 0;
+        // fungsi untuk mengambil data total pengeluaran
+        for (let index = 0; index < result.data.length; index++) {
+          sum += result.data[index].pengeluaraan;
+        }
+
+        this.totalPengeluaran = sum;
+        this.dataPengeluaran = newResult;
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    modalHandler(value: boolean): void {
+      this.isOpen = value;
+    },
+    async addItemsHandler({ nama, harga }: { nama: string; harga: number }) {
+      // mengambil data tanggal hari ini
+      const today = new Date();
+      const tahun = today.getFullYear();
+      const hari = today.getDate();
+
+      const tanggal = hari + " " + this.getBulan + " " + tahun;
       const numPrefix = (num: number | string) => {
         let prefixed = num;
         if (num < 10) {

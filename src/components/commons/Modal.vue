@@ -48,10 +48,10 @@
             </div>
             <hr />
             <div class="flex justify-end mt-4">
-              <Button class="bg-gray-500 mr-2" @click="closeModalHandler"
+              <Button class="bg-gray-500 hover:bg-gray-600 mr-2" @click="closeModalHandler"
                 >Batal</Button
               >
-              <Button class="bg-purple-800" @click.prevent="addItemsHandler"
+              <Button class="bg-purple-700 hover:bg-purple-600" @click.prevent="addItemsHandler"
                 >Kirim</Button
               >
             </div>
